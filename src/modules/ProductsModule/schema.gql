@@ -1,0 +1,35 @@
+type Query {
+  products: [Product!]!
+}
+
+type Mutation {
+  addProduct(
+    category_id: ID!
+    product_name: String!
+    price: bigint!
+    short_descriptoin: String!
+    long_description: String!
+    file: Upload!
+  ): [Product!]!
+  editProduct(
+    product_id: ID
+    category_id: ID
+    product_name: String
+    price: bigint
+    short_descriptoin: String
+    long_description: String
+    file: Upload
+  ): [Product!]!
+  removeProduct(product_id: ID!): [Product!]!
+}
+
+type Product {
+  product_id: ID!
+  product_name: String!
+  category_id: ID!
+  price: bigint!
+  short_description: String!
+  long_description: String!
+  picture_name: String!
+  categorie_name: String!
+}

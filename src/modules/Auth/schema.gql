@@ -1,0 +1,14 @@
+type Mutation {
+  register(
+    user_name: String!
+    password: String!
+    contact: bigint!
+    email: Email!
+  ): Response!
+
+  login(user_name: String!, password: String!): Response!
+}
+
+type Response {
+  token: String!
+}

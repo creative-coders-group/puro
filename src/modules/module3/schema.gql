@@ -1,0 +1,7 @@
+type Mutation {
+  fileUpload(file: Upload!): Response!
+}
+
+type Response {
+  token: String!
+}

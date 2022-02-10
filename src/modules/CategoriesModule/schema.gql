@@ -1,0 +1,15 @@
+type Query {
+  categories: [Category!]!
+}
+
+type Mutation {
+  addCategory(categorie_name: String!): [Category!]!
+  editCategory(category_id: ID!, categorie_name: String!): [Category!]!
+  removeCategory(category_id: ID!): [Category!]!
+}
+
+type Category {
+  category_id: ID!
+  categorie_name: String!
+  products: [Product]
+}

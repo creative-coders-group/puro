@@ -1,0 +1,17 @@
+# input Pagination {
+#   page: Int = 1
+#   limit: Int = 2
+# }
+
+type Query {
+  users(user_id: ID): [User!]!
+}
+
+type User {
+  user_id: ID!
+  user_name: String!
+  email: Email!
+  contact: bigint
+  role: String!
+}
+# , search: String, pagination: Pagination = {}

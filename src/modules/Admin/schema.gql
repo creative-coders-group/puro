@@ -1,0 +1,4 @@
+type Query {
+  totalPaidMoney: bigint!
+  totalUnPaidMoney: bigint!
+}

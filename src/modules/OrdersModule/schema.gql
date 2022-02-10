@@ -1,0 +1,17 @@
+type Query {
+  orders(user_id: ID): [Order!]!
+}
+
+type Mutation {
+  addOrder(product_id: ID!): [Order!]!
+  removeOrder(order_id: ID!): [Order!]!
+  buyAllOrders: [Order!]!
+}
+
+type Order {
+  order_id: ID!
+  user_id: ID!
+  product_id: ID!
+  is_paid: isPaid!
+  order_created_at: Any!
+}

@@ -1,0 +1,14 @@
+scalar Email
+scalar Upload
+scalar bigint
+scalar Any
+
+enum isPaid {
+  paid
+  unpaid
+}
+
+type Response {
+  status: Int
+  message: String
+}
