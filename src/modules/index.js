@@ -2,7 +2,6 @@ import { makeExecutableSchema } from "@graphql-tools/schema";
 
 import TypeModule from "./types/index.js";
 import UserModule from "./UsersModule/index.js";
-import fileModule from "./module3/index.js";
 import CategoryModule from "./CategoriesModule/index.js";
 import ProductModule from "./ProductsModule/index.js";
 import AuthModule from "./Auth/index.js";
@@ -13,7 +12,6 @@ export default makeExecutableSchema({
   typeDefs: [
     TypeModule.typeDefs,
     UserModule.typeDefs,
-    fileModule.typeDefs,
     CategoryModule.typeDefs,
     ProductModule.typeDefs,
     AuthModule.typeDefs,
@@ -24,7 +22,6 @@ export default makeExecutableSchema({
     AdminModule.resolvers,
     TypeModule.resolvers,
     UserModule.resolvers,
-    fileModule.resolvers,
     CategoryModule.resolvers,
     ProductModule.resolvers,
     AuthModule.resolvers,
