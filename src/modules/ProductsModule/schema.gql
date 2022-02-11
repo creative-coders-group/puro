@@ -24,12 +24,12 @@ type Mutation {
 }
 
 type Product {
-  product_id: ID!
-  product_name: String!
-  category_id: ID!
-  price: bigint!
-  short_description: String!
-  long_description: String!
-  picture_name: String!
-  categorie_name: String!
+  product_id: ID
+  product_name: String
+  category_id: ID
+  price: bigint
+  short_description: String
+  long_description: String
+  picture_name: String
+  categorie_name: String
 }
