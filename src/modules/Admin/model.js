@@ -5,14 +5,40 @@ const TOTALPAIDMONEY = `
 select sum(products.price)
  from orders left join products
 on orders.product_id=products.product_id
- where orders.is_paid = 1;
+ where orders.is_paid = 1
+ and extract(month from order_created_at) = extract(month from now());;
 `;
 
 const TOTALUNPAIDMONEY = `
 select sum(products.price)
  from orders left join products
 on orders.product_id=products.product_id
- where orders.is_paid = 0;
+ where orders.is_paid = 0
+ and extract(month from order_created_at) = extract(month from now());;
+`;
+
+const MOSTSOLDPRODUCT = `
+ select o.product_id,
+ count(o.product_id) as occurancy,
+ p.product_name
+ from orders o
+ left join products p on
+ p.product_id = o.product_id
+ group by o.product_id, p.product_id, p.product_name
+ order by occurancy desc
+ limit 1;
+`;
+
+const LEASTSOLDPRODUCT = `
+ select o.product_id,
+ count(o.product_id) as occurancy,
+ p.product_name
+ from orders o
+ left join products p on
+ p.product_id = o.product_id
+ group by o.product_id, p.product_id, p.product_name
+ order by occurancy asc
+ limit 1;
 `;
 
 function totalPaidMoney() {
@@ -23,9 +49,19 @@ function totalUnPaidMoney() {
   return fetch(TOTALUNPAIDMONEY);
 }
 
+function mostSoldProduct() {
+  return fetch(MOSTSOLDPRODUCT);
+}
+
+function leastSoldProduct() {
+  return fetch(LEASTSOLDPRODUCT);
+}
+
 export default {
   totalPaidMoney,
   totalUnPaidMoney,
+  mostSoldProduct,
+  leastSoldProduct,
 };
 
 // WHERE
