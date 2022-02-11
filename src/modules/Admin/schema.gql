@@ -1,6 +1,6 @@
 type Query {
   totalPaidMoney: bigint!
   totalUnPaidMoney: bigint!
-  mostSoldProduct: Product!
-  leastSoldProduct: Product!
+  mostSoldProduct: [Product]!
+  leastSoldProduct: [Product]!
 }
